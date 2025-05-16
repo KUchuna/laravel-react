@@ -38,7 +38,7 @@ export default function NewPostModal({setIsOpen}) {
 
                 </textarea>
                 {errors.body && <p className="text-red-500 italic">{errors.body}</p>}
-                <button type="submit" className={`bg-green-500 ml-auto px-3 py-1 rounded-lg text-white font-bold cursor-pointer hover:bg-green-600 ${processing && "cursor-not-allowed bg-green-600 pointer-events-none"}`} disabled={processing}>{processing ? "Loading.." : "Submit!"}</button>
+                <button type="submit" className={`bg-green-500 ml-auto px-3 py-1 rounded-lg text-white font-bold cursor-pointer hover:bg-green-600 ${processing && "cursor-not-allowed bg-gray-400 pointer-events-none"}`} disabled={processing}>{processing ? "Loading.." : "Submit!"}</button>
             </form>
         </div>
     );
