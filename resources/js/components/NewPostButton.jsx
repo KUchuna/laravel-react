@@ -14,7 +14,9 @@ export default function NewPostButton() {
             </button>
             {isOpen &&
                 createPortal(
-                    <NewPostModal />, document.getElementById('app')
+                    <NewPostModal 
+                        setIsOpen={setIsOpen}
+                    />, document.getElementById('app')
                 )
             }
         </>

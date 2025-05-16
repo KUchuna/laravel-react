@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import NewPostButton from "../../components/NewPostButton";
 import Pagination from "../../components/Pagination";
 
@@ -20,6 +21,7 @@ export default function Posts({posts}) {
                                 {new Date(post.created_at).toLocaleTimeString()}
                             </span>
                             <p>{post.body}</p>
+                            <Link className="text-blue-600 font-bold hover:text-blue-700" href={`/posts/${post.id}`}>Read More...</Link>
                         </div>
                     )
                 })}
