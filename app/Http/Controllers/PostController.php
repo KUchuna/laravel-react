@@ -61,7 +61,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $fields = $request->validate([
+            'body' => ['required', 'min:1'] 
+        ]);
+
+        $post->update($fields);
+        
+
+        return(redirect("/posts"));
     }
 
     /**
@@ -69,6 +76,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('/posts');
     }
 }

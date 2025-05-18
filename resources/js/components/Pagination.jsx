@@ -17,7 +17,7 @@ export default function Pagination({posts}) {
                     <span
                         key={index}
                         dangerouslySetInnerHTML={{ __html: link.label }}
-                        className="bg-gray-200 py-1 px-3 rounded-lg text-gray-500 cursor-not-allowed"
+                        className="bg-gray-200 py-1 px-3 rounded-lg text-gray-500 cursor-not-allowed font-bold"
                     />
                 );
             })}
