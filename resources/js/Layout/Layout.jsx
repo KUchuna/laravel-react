@@ -1,10 +1,21 @@
-import { Link } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 import { usePage } from '@inertiajs/react';
 
 
 export default function Layout({ children }) {
 
   const { auth } = usePage().props;
+
+  const { post } = useForm();
+
+  function handleLogout(e) {
+    e.preventDefault()
+    post('/logout')
+  }
+
+
+
+  console.log(auth)
 
   return (
     <>
@@ -15,8 +26,20 @@ export default function Layout({ children }) {
           <Link href="/about" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>About</Link>
         </nav>
         <div className='flex gap-2'>
-          {!auth.user && <Link href="/register" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>Register</Link>}
-          {auth.user ? <Link href="/login" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>Log out</Link> : <Link href="/logout" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>Log out</Link>}
+          {!auth.user && (
+            <>
+              <Link href="/login" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>Login</Link>
+              <Link href="/register" className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75'>Register</Link>
+            </>
+          )}
+          {auth.user && (
+            <button
+              onClick={handleLogout}
+              className='px-2 py-1 bg-white rounded-lg hover:scale-110 transition-transform duration-75 cursor-pointer'
+            >
+              Log out
+            </button>
+          )}
         </div>
       </header>
       <main className='px-[80px] py-30 w-full'>{children}</main>

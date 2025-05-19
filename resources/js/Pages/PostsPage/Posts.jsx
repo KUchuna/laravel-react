@@ -7,8 +7,12 @@ export default function Posts({posts, user}) {
     return (
         <>  
             <div className="flex mb-4 justify-between items-center">
-                <h1 className="text-4xl text-sky-400 font-bold">Welcome, {user.name}</h1>
-                <NewPostButton />
+                {user && 
+                    <>
+                        <h1 className="text-4xl text-sky-400 font-bold">Welcome, {user.name}</h1>
+                        <NewPostButton />
+                    </>
+                }
             </div>
             <Pagination 
                 posts={posts}
