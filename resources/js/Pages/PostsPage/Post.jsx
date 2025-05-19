@@ -11,7 +11,7 @@ export default function Post({post}) {
     }
 
     return (
-        <>
+        <div className="w-full">
             <div className="border-b border-gray-400 pb-4 mt-2">
                 <span className="text-gray-400 text-sm">
                     {new Date(post.created_at).toLocaleTimeString()}
@@ -29,6 +29,6 @@ export default function Post({post}) {
                     post={post}
                 />
             </div>
-        </>
+        </div>
     )
 }

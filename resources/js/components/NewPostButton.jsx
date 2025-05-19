@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { createPortal } from "react-dom"
-import NewPostModal from "./NewPostModal"
+import NewPostModal from "./NewPostModal.jsx"
 
 export default function NewPostButton() {
 

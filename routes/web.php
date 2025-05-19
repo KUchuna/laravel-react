@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -22,3 +24,17 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::delete('/posts/{post}', [PostController::class,'destroy']);
 
 Route::put('/posts/{post}', [PostController::class,'update']);
+
+Route::get('/register', function () {
+    return Inertia::render('RegisterPage/Register');
+});
+
+Route::post('/register', [UserController::class, 'store']);
+
+Route::get('/login', function () {
+    return Inertia::render('LoginPage/Login');
+});
+
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', []);

@@ -2,12 +2,12 @@ import { Link } from "@inertiajs/react";
 import NewPostButton from "../../components/NewPostButton";
 import Pagination from "../../components/Pagination";
 
-export default function Posts({posts}) {
+export default function Posts({posts, user}) {
 
     return (
         <>  
             <div className="flex mb-4 justify-between items-center">
-                <h1 className="text-4xl text-sky-400 font-bold">This is posts page</h1>
+                <h1 className="text-4xl text-sky-400 font-bold">Welcome, {user.name}</h1>
                 <NewPostButton />
             </div>
             <Pagination 

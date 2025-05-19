@@ -27,7 +27,7 @@ export default function EditPostModal({setIsOpen, post}) {
         put(`/posts/${post.id}`)
     }
 
-    console.log(useForm())
+
     wasSuccessful && setIsOpen(false)
 
     return (

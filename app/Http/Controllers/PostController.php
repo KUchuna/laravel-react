@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,7 +15,10 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(5);
-        return Inertia::render('PostsPage/Posts', ['posts' => $posts]);
+
+        $user = Auth::user();
+
+        return Inertia::render('PostsPage/Posts', ['posts' => $posts, 'user' => $user]);
     }
 
     /**

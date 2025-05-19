@@ -30,7 +30,7 @@ export default function NewPostModal({setIsOpen}) {
     wasSuccessful && setIsOpen(false)
 
     return (
-        <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center" id="new-post-modal">
+        <div className="fixed w-full h-full flex flex-col gap-4 justify-center items-center" id="new-post-modal">
             <h4 className="font-bold text-3xl text-sky-500">Add new post</h4>
             <form className="bg-sky-100 w-[70%] h-[40%] rounded-2xl px-2 py-4 flex flex-col gap-4" ref={formRef} onSubmit={submit}>
                 <label className="w-full font-bold text-lg text-green-500" htmlFor="body">Add your post text</label>
