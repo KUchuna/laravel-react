@@ -9,7 +9,7 @@ export default function Posts({posts, user}) {
             <div className="flex mb-4 justify-between items-center">
                 {user && 
                     <>
-                        <h1 className="text-4xl text-sky-400 font-bold">Welcome, {user.name}</h1>
+                        <h1 className="text-4xl text-sky-400 font-bold">Welcome, {user.name}!</h1>
                         <NewPostButton />
                     </>
                 }
