@@ -35,7 +35,11 @@ export default function Register() {
                     />
                     {errors.password && <span className="text-sm text-red-500 italic">{errors.password}</span>}
                 </div>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg ml-auto px-2 py-1 cursor-pointer">Login</button>
+                <button className={`bg-green-500 text-white font-bold rounded-lg ml-auto px-2 py-1 ${processing ? "cursor-not-allowed bg-green-800" : "cursor-pointer hover:bg-green-600"}`}
+                        disabled={processing}
+                        >
+                        {processing ? "Loading..." : "Log in"}
+                </button>
             </form>
         </div>
     )

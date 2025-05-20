@@ -43,3 +43,5 @@ Route::post('/logout', function () {
     request()->session()->regenerateToken();
     return redirect('/');
 });
+
+Route::get('/users', [UserController::class, 'index'])->middleware('auth');

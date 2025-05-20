@@ -1,5 +1,6 @@
 import { Link, useForm } from '@inertiajs/react';
 import { usePage } from '@inertiajs/react';
+import ChatButton from '../components/ChatButton';
 
 
 export default function Layout({ children }) {
@@ -38,7 +39,12 @@ export default function Layout({ children }) {
           )}
         </div>
       </header>
-      <main className='px-[80px] py-30 w-full'>{children}</main>
+      <main className='px-[80px] py-30 w-full relative'>
+        {children}
+        {auth.user &&
+          <ChatButton />
+        }
+      </main>
     </>
   )
 }

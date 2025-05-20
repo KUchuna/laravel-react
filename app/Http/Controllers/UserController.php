@@ -9,6 +9,8 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
+use function Pest\Laravel\json;
+
 class UserController extends Controller
 {
     /**
@@ -16,7 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $users = User::all();
 
+        return response()->json(['users' => $users]);
     }
 
     /**
