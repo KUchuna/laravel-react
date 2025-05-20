@@ -15,15 +15,15 @@ Route::get('/about', function () {
     return Inertia::render('AboutPage/About');
 });
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->middleware('auth');
 
-Route::post('/posts', [PostController::class, 'store']);
+Route::post('/posts', [PostController::class, 'store'])->middleware('auth');;
 
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/{post}', [PostController::class, 'show'])->middleware('auth');;
 
-Route::delete('/posts/{post}', [PostController::class,'destroy']);
+Route::delete('/posts/{post}', [PostController::class,'destroy'])->middleware('auth');;
 
-Route::put('/posts/{post}', [PostController::class,'update']);
+Route::put('/posts/{post}', [PostController::class,'update'])->middleware('auth');;
 
 Route::get('/register', function () {
     return Inertia::render('RegisterPage/Register');
@@ -33,7 +33,7 @@ Route::post('/register', [UserController::class, 'store']);
 
 Route::get('/login', function () {
     return Inertia::render('LoginPage/Login');
-});
+})->name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 

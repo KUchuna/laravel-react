@@ -1,8 +1,10 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import EditPostButton from "../../components/EditPostButton";
 
 export default function Post({post}) {
     
+    const { auth } = usePage().props;
+
     const { delete: destroy } = useForm()
     
     function submit(e) {
@@ -20,14 +22,20 @@ export default function Post({post}) {
 
             </div>
             <div className="mt-2 w-full flex flex-row-reverse gap-4">
-                <form onSubmit={submit}>
-                    <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-2 py-1 rounded-lg cursor-pointer">
-                        Delete
-                    </button>
-                </form>
-                <EditPostButton 
-                    post={post}
-                />
+                {auth.user.id == post.user_id ? 
+                <>
+                    <form onSubmit={submit}>
+                        <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-2 py-1 rounded-lg cursor-pointer">
+                            Delete
+                        </button>
+                    </form>
+                    <EditPostButton 
+                        post={post}
+                        /> 
+                </>
+                    : 
+                <></>
+                }
             </div>
         </div>
     )

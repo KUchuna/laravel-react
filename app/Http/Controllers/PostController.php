@@ -38,7 +38,7 @@ class PostController extends Controller
             'body' => ['required', 'min:1'] 
         ]);
 
-        Post::create($fields);
+        Post::create([...$fields, 'user_id' => Auth::id()]);
         
 
         return(redirect("/posts"));
@@ -69,10 +69,12 @@ class PostController extends Controller
             'body' => ['required', 'min:1'] 
         ]);
 
-        $post->update($fields);
-        
-
-        return(redirect("/posts"));
+        if(Auth::user()->id != $post->user_id) {
+            return(redirect("/"));
+        } else {
+            $post->update($fields);
+            return(redirect("/posts"));
+        }
     }
 
     /**
@@ -80,7 +82,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-        return redirect('/posts');
+        if(Auth::user()->id != $post->user_id) {
+            return(redirect("/"));
+        } else {
+            $post->delete();
+            return redirect('/posts');
+        }
     }
 }

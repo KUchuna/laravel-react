@@ -12,11 +12,7 @@ export default function Layout({ children }) {
     e.preventDefault()
     post('/logout')
   }
-
-
-
-  console.log(auth)
-
+  
   return (
     <>
       <header className='flex justify-between gap-4 bg-gray-900 py-4 px-20 fixed w-full z-100'>
