@@ -32,5 +32,18 @@ body, html {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
+#chat-list::-webkit-scrollbar {
+    width: 2px;
+}
+
+#chat-list::-webkit-scrollbar-track {
+    width: 2px;
+    background-color: rgb(1, 75, 104);
+}
+
+#chat-list::-webkit-scrollbar-thumb {
+    width: 2px;
+    background-color: rgb(255, 255, 255);
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom";
 import { useQuery } from '@tanstack/react-query'
+import ChatWindow from "./ChatWindow";
 
 export default function ChatButton() {
 
@@ -48,12 +49,10 @@ export default function ChatButton() {
                     <div>Error loading: {error.message}</div>
                 ) : (
                     createPortal(
-                    <div className="w-[400px] h-[300px] bg-red-400 fixed right-10 bottom-24 rounded-lg px-2 py-1" ref={chatRef}>
-                        <ul>
-                        {data?.users?.map((user) => (
-                            <li key={user.id}>{user.name}</li>
-                        ))}
-                        </ul>
+                    <div className="w-[400px] h-[300px] flex bg-teal-200 fixed right-10 bottom-24 rounded-lg pr-2" ref={chatRef}>
+                        <ChatWindow 
+                            data={data}
+                        />
                     </div>,
                     document.getElementById('app')
                     )
