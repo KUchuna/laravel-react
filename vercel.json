@@ -11,8 +11,8 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourprojectdomain.com",
-
+        "APP_URL": "https://laravel-react-two.vercel.app/",
+        "APP_KEY": "base64:xWfhvB55+3yzIn7Q34p9fBu4VF8IKn/32yL2mjGLf2c=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
